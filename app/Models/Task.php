@@ -14,7 +14,7 @@ class Task extends Model
 
     protected static function booted()
     {
-        statis::creating(function ($task) {
+        static::creating(function ($task) {
             $task->tenant_id = currentTenant()->id;
         });
     }
