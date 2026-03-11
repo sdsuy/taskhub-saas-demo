@@ -18,6 +18,8 @@ class TaskController extends Controller
             'title' => $request->title
         ]);
 
+        event(new TaskCreated($task));
+
         return response()->json($task, 201);
     }
 }
