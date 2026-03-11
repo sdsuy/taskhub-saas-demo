@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Events\TaskCreated;
 
 class TaskController extends Controller
 {
@@ -13,7 +14,7 @@ class TaskController extends Controller
         return Task::where('tenant_id', currentTenant()->id)->get();
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $task = Task::create([
             'title' => $request->title
