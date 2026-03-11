@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            TenantSeeder::class
+            TenantSeeder::class,
+            TaskSeeder::class
         ]);
     }
 }
