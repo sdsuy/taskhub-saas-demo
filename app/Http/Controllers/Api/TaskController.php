@@ -20,8 +20,11 @@ class TaskController extends Controller
             'title' => $request->title
         ]);
 
+        // dd('evento disparado');
+
         event(new TaskCreated($task));
 
         return response()->json($task, 201);
+        // return $task;
     }
 }

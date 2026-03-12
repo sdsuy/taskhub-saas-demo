@@ -9,17 +9,20 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Task;
 
 class TaskCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public Task $task;
+
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct(Task $task)
     {
-        //
+        $this->task = $task;
     }
 
     /**
